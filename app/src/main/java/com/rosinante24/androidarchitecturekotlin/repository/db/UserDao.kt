@@ -7,7 +7,7 @@ import android.arch.persistence.room.Query
 import com.rosinante24.androidarchitecturekotlin.repository.data.User
 import io.reactivex.Single
 
-/**
+/*
  * Created by Rosinante24 on 29/10/17.
  */
 @Dao

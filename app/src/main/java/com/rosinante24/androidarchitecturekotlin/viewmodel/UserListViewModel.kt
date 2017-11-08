@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-/**
+/*
  * Created by Rosinante24 on 29/10/17.
  */
 class UserListViewModel(private val userRepository: UserRepository) {

@@ -11,7 +11,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 
-/**
+/*
  * Created by Rosinante24 on 29/10/17.
  */
 class App : Application() {

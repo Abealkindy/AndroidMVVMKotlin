@@ -7,7 +7,7 @@ import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-/**
+/*
  * Created by Rosinante24 on 29/10/17.
  */
 class UserRepository(private val userApi: UserApi, private val userDao: UserDao) {
@@ -19,7 +19,7 @@ class UserRepository(private val userApi: UserApi, private val userDao: UserDao)
     }
 
 
-    fun getUsersFromDb(): Observable<List<User>> {
+    private fun getUsersFromDb(): Observable<List<User>> {
         return userDao.getUsers().filter { it.isNotEmpty() }
                 .toObservable()
                 .doOnNext {
@@ -27,7 +27,7 @@ class UserRepository(private val userApi: UserApi, private val userDao: UserDao)
                 }
     }
 
-    fun getUsersFromApi(): Observable<List<User>> {
+    private fun getUsersFromApi(): Observable<List<User>> {
         return userApi.getUsers()
                 .doOnNext {
                     Timber.d("Dispatching ${it.size} users from API...")
@@ -35,7 +35,7 @@ class UserRepository(private val userApi: UserApi, private val userDao: UserDao)
                 }
     }
 
-    fun storeUsersInDb(users: List<User>) {
+    private fun storeUsersInDb(users: List<User>) {
         Observable.fromCallable { userDao.insertAll(users) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
